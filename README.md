@@ -40,8 +40,8 @@ By the end of this repository, I want to have a strong body of work showing that
 
 | # | Project | Focus Area | Status |
 |---|---------|------------|--------|
-| 01 | C Utility Programs Collection | Core syntax, functions, loops, arrays, structs | Not Started |
-| 02 | Custom C String Library | Strings, pointers, null terminators, buffers | Not Started |
+| 01 | C Utility Programs Collection | Core syntax, functions, loops, arrays, structs | Completed |
+| 02 | Custom C String Library | Strings, pointers, null terminators, buffers | Pending |
 | 03 | Pointer Laboratory and Memory Visualizer | Pointers, addresses, pointer arithmetic, callbacks | Not Started |
 | 04 | Dynamic Array / Vector Library | `malloc`, `realloc`, `free`, ownership | Not Started |
 | 05 | Dynamic String Builder | Growable strings, buffer management, safe APIs | Not Started |
