@@ -46,5 +46,5 @@ From the repository root, compile any file using `gcc`.
 Example:
 
 ```bash
-gcc 01_c_foundations_toolkit/src/leap_year_checker.c -o leap_year_checker
+gcc 00_c_foundations_toolkit/src/leap_year_checker.c -o leap_year_checker
 ./leap_year_checker
