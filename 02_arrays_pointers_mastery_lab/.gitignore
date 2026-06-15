@@ -1,0 +1,22 @@
+# Compiled binaries
+bin/*
+!bin/.gitkeep
+
+# Build files
+build/*
+!build/.gitkeep
+
+# Object files
+*.o
+
+# Executables
+*.exe
+*.out
+
+# Editor files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
