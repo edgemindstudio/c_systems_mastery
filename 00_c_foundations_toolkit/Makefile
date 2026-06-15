@@ -1,5 +1,5 @@
 # Makefile for 00_c_foundations_toolkit
-# Builds individual C utility programs from the src/ folder.
+# Builds individual C utility programs from the src/ folder into the build/ folder.
 
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11
@@ -7,7 +7,6 @@ CFLAGS = -Wall -Wextra -std=c11
 SRC_DIR = src
 BUILD_DIR = build
 
-# Program names
 PROGRAMS = calculator \
            prime_checker \
            integer_reversal \
@@ -27,17 +26,24 @@ PROGRAMS = calculator \
            pyramid_of_stars \
            add_without_plus
 
-# Build all programs
-all: $(PROGRAMS)
+EXES = $(addprefix $(BUILD_DIR)/,$(addsuffix .exe,$(PROGRAMS)))
 
-# Generic rule:
-# make calculator builds src/calculator.c into build/calculator.exe
-%: $(SRC_DIR)/%.c
-	@if not exist $(BUILD_DIR) mkdir $(BUILD_DIR)
-	$(CC) $(CFLAGS) $< -o $(BUILD_DIR)/$@.exe
+all: $(EXES)
 
-# Remove compiled executables
+# Friendly targets:
+# make calculator -> builds build/calculator.exe
+$(PROGRAMS): %: $(BUILD_DIR)/%.exe
+
+# Build rule:
+# build/calculator.exe depends on src/calculator.c
+$(BUILD_DIR)/%.exe: $(SRC_DIR)/%.c | $(BUILD_DIR)
+	$(CC) $(CFLAGS) $< -o $@
+
+# Create build directory if it does not exist
+$(BUILD_DIR):
+	if not exist "$(BUILD_DIR)" mkdir "$(BUILD_DIR)"
+
 clean:
-	@if exist $(BUILD_DIR) rmdir /S /Q $(BUILD_DIR)
+	if exist "$(BUILD_DIR)" rmdir /S /Q "$(BUILD_DIR)"
 
 .PHONY: all clean $(PROGRAMS)
