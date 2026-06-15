@@ -26,24 +26,34 @@ PROGRAMS = calculator \
            pyramid_of_stars \
            add_without_plus
 
-EXES = $(addprefix $(BUILD_DIR)/,$(addsuffix .exe,$(PROGRAMS)))
+ifeq ($(OS),Windows_NT)
+EXE_EXT = .exe
+MKDIR = if not exist "$(BUILD_DIR)" mkdir "$(BUILD_DIR)"
+RMDIR = if exist "$(BUILD_DIR)" rmdir /S /Q "$(BUILD_DIR)"
+else
+EXE_EXT =
+MKDIR = mkdir -p "$(BUILD_DIR)"
+RMDIR = rm -rf "$(BUILD_DIR)"
+endif
+
+EXES = $(addprefix $(BUILD_DIR)/,$(addsuffix $(EXE_EXT),$(PROGRAMS)))
 
 all: $(EXES)
 
 # Friendly targets:
-# make calculator -> builds build/calculator.exe
-$(PROGRAMS): %: $(BUILD_DIR)/%.exe
+# make calculator -> builds build/calculator or build/calculator.exe
+$(PROGRAMS): %: $(BUILD_DIR)/%$(EXE_EXT)
 
 # Build rule:
-# build/calculator.exe depends on src/calculator.c
-$(BUILD_DIR)/%.exe: $(SRC_DIR)/%.c | $(BUILD_DIR)
+# build/calculator or build/calculator.exe depends on src/calculator.c
+$(BUILD_DIR)/%$(EXE_EXT): $(SRC_DIR)/%.c | $(BUILD_DIR)
 	$(CC) $(CFLAGS) $< -o $@
 
 # Create build directory if it does not exist
 $(BUILD_DIR):
-	if not exist "$(BUILD_DIR)" mkdir "$(BUILD_DIR)"
+	$(MKDIR)
 
 clean:
-	if exist "$(BUILD_DIR)" rmdir /S /Q "$(BUILD_DIR)"
+	$(RMDIR)
 
 .PHONY: all clean $(PROGRAMS)
