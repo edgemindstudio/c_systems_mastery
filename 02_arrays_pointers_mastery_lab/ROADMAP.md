@@ -1,0 +1,1 @@
+- [x] 01. array_statistics.c completed
