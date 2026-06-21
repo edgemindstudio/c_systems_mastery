@@ -5,5 +5,6 @@
 
 int read_int(const char *prompt, int *out_value);
 int read_int_in_range(const char *prompt, int min_value, int max_value, int *out_value);
+int read_int_array(int arr[], int n);
 
 #endif

@@ -1,6 +1,9 @@
 // 02_arrays_pointers_mastery_lab/lib/array_utils.c
 
 #include "array_utils.h"
+#include <stdio.h>
+
+// Exercise 1: Array statistics
 
 int array_sum(const int arr[], int n) {
     int sum = 0;
@@ -62,4 +65,50 @@ int array_max(const int arr[], int n) {
     }
 
     return max;
+}
+
+// Exercise 2: Reverse array
+
+/* Prints the array from beginning to end. */
+void array_print(const int arr[], int n) {
+    int i;
+
+    /* Stop if the array is invalid or has no elements. */
+    if (arr == NULL || n <= 0) {
+        return;
+    }
+
+    /* Print each element from index 0 to index n - 1. */
+    for (i = 0; i < n; i++) {
+        // Avoid trailing space at the end of array
+        if (i > 0) {
+            printf(" ");
+        }
+        
+        printf("%d", arr[i]);
+    }
+
+    printf("\n");
+}
+
+/* Prints the array from end to beginning. */
+void array_print_reverse(const int arr[], int n) {
+    int i;
+
+    /* Stop if the array is invalid or has no elements. */
+    if (arr == NULL || n <= 0) {
+        return;
+    }
+
+    /* Print each element from index n - 1 down to index 0. */
+    for (i = n - 1; i >= 0; i--) {
+        // Avoid trailing space at the end of reverse
+        if (i < n - 1) {
+            printf(" ");
+        }
+        
+        printf("%d", arr[i]);
+    }
+
+    printf("\n");
 }
