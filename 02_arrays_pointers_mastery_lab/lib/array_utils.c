@@ -112,3 +112,36 @@ void array_print_reverse(const int arr[], int n) {
 
     printf("\n");
 }
+
+// Exercise 3: Count even and odd values
+
+int array_count_even_odd(
+    const int arr[],
+    int n,
+    int *even_count,
+    int *odd_count
+) {
+    int i;
+
+    if (arr == NULL ||
+        n <= 0 ||
+        even_count == NULL ||
+        odd_count == NULL) {
+        return 0;
+    }
+
+    *even_count = 0;
+    *odd_count = 0;
+
+    for (i = 0; i < n; i++) {
+        if (arr[i] % 2 == 0) {
+            // *even_count = *even_count + 1;
+            (*even_count)++;
+        } else {
+            // *odd_count = *odd_count + 1;
+            (*odd_count)++;
+        }
+    }
+
+    return 1;
+}

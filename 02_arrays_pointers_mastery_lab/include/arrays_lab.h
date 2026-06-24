@@ -6,4 +6,6 @@
 void run_array_statistics(void);
 void run_array_reverse(void);
 
+void run_array_count_even_odd(void);
+
 #endif

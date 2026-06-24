@@ -13,4 +13,7 @@ int array_max(const int arr[], int n);
 void array_print(const int arr[], int n);
 void array_print_reverse(const int arr[], int n);
 
+// Exercise 3: Count even and odd values
+int array_count_even_odd(const int arr[], int n, int *even_count, int *odd_count);
+
 #endif

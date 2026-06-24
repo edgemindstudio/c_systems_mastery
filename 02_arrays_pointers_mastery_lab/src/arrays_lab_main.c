@@ -4,7 +4,8 @@
 
 int main(void) {
     // run_array_statistics();
-    run_array_reverse();
+    // run_array_reverse();
+    run_array_count_even_odd();
 
     return 0;
 }

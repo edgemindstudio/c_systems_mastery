@@ -33,6 +33,7 @@ test_array_utils: $(TEST_ARRAY_UTILS)
 $(ARRAYS_LAB): src/arrays_lab_main.c \
                 src/phase01_1d_arrays/array_statistics.c \
 				src/phase01_1d_arrays/array_reverse.c \
+				src/phase01_1d_arrays/array_count_even_odd.c \
                 lib/array_utils.c \
                 lib/input_utils.c \
                 include/arrays_lab.h \
@@ -41,6 +42,7 @@ $(ARRAYS_LAB): src/arrays_lab_main.c \
 	$(CC) $(CFLAGS) src/arrays_lab_main.c \
 	                 src/phase01_1d_arrays/array_statistics.c \
 	                 src/phase01_1d_arrays/array_reverse.c \
+	                 src/phase01_1d_arrays/array_count_even_odd.c \
 	                 lib/array_utils.c \
 	                 lib/input_utils.c \
 	                 -o $(ARRAYS_LAB)
